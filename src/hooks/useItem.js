@@ -1,19 +1,17 @@
-import { useEffect, useState } from 'react'
+import { useState, useCallback } from 'react'
+import getItem from './../services/getItemService'
 
-export const useFetch = (url) => {
-  const [data, setData] = useState([])
+export const useItem = () => {
+  const [data, setData] = useState(null)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
-  useEffect(() => {
+  const getData = useCallback((id) => {
     setLoading(true)
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setData(data))
-      .catch((e) => setError('Ocurrió un error'))
+    getItem(id)
+      .then((data) => setData(data.item))
+      .catch(() => setError('Ocurrió un error'))
       .finally(() => setLoading(false))
-  }, [url])
-
-  return { data, error, loading }
+  }, [])
+  return { data, error, loading, getData }
 }
-//   const apiURL = `${API_URL}/items/${id}`

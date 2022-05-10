@@ -1,9 +1,12 @@
+import './Categories.scss'
 
-function Categories (props) {
-  const { category } = props
-  console.log(props)
+function Categories ({ categories }) {
   return (
-    <div>{category}</div>
+    <div className="Categories">
+    {categories && categories.length === 1
+      ? categories[0]
+      : categories.join(' > ')
+    }</div>
   )
 }
 

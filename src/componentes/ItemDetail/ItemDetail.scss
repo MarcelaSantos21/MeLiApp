@@ -1,0 +1,93 @@
+@import '../../styles/utils/settings';
+
+
+.Item-detail {
+    background: $color-generic-white;
+    border-radius: 4px;
+
+    .Details-sup {
+        display: flex;
+        justify-content: space-between;
+        margin-right: 32px;
+        margin-bottom: 100px;
+
+        img.Product-img {
+            margin-right: 32px;
+            width: 680px;
+            min-width: 680px;
+
+            @include respond(medium) {
+                min-width: 350px;
+            }
+
+            @include respond(small) {
+                min-width: 200px;
+            }
+        }
+
+        .Product-condition {
+            margin-top: 32px;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .Product-name {
+            margin-bottom: 32px;
+            margin-top: 16px;
+            @include respond(medium) {
+                font-size: 14px;
+             }
+        }
+
+        .Product-price {
+            display: block;
+            font-size: 46px;
+            margin: 32px 0;
+            @include respond(medium) {
+               font-size: 32px;
+            }
+        }
+
+        .btn-buy {
+            width: 260px;
+            height: 42px;
+            border: none;
+            border-radius: 4px;
+            background: #348efa;
+            color: #fff;
+            font-size: 16px;
+
+            @include respond(small) {
+                width: 100px;
+                font-size: 12px;
+            }
+            @include respond(medium) {
+                width: 200px;
+                font-size: 14px;
+            }
+        }
+    }
+
+    .title-description {
+        font-size: 28px;
+        margin-left: 32px;
+        margin-bottom: 32px;
+    }
+
+    .Product-description {
+        margin-left: 32px;
+        padding-bottom: 30px;
+        color: #999;
+        width: 680px;
+        text-align: justify;
+
+        @include respond(medium) {
+            width: 90%;
+            font-size: 14px;
+        }
+
+        @include respond(small) {
+            font-size: 12px;
+        }
+    }
+}

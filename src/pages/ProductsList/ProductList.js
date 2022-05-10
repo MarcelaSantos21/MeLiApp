@@ -5,14 +5,17 @@ import Spinner from './../../componentes/Spinner/Spinner'
 import { useItems } from './../../hooks/useItems'
 import ItemNotFound from '../../componentes/ItemNotFound/ItemNotFound'
 import Categories from '../../componentes/Categories/Categories'
+import { useEffect } from 'react'
 
 function ProductList (props) {
   const [searchParams] = useSearchParams()
   const query = searchParams.get('search')
+  const { data, error, loading, getData } = useItems()
 
-  const { data, error, loading } = useItems(query)
+  useEffect(() => {
+    getData(query)
+  }, [getData, query])
 
-  console.log(data)
   if (loading) {
     return <Spinner/>
   }
@@ -23,10 +26,10 @@ function ProductList (props) {
 
   return (
     <div className='ProductList'>
-      {data.items.length > 0
+      {data && data.items.length > 0
         ? <div>
             <div className='ProductList-categories'>
-              <Categories category = {data.categories} />
+              <Categories categories = {data.categories} />
             </div>
             <Item data={data.items} />
           </div>

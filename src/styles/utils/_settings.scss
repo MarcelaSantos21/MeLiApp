@@ -1,10 +1,23 @@
 //Colors
 $color-text-primary: #333;
-$color-text-secundary:#666;
+$color-text-secundary: #666;
 
-$color-generic-yellow:#FFE600;
-$color-generic-white:#fff;
-$color-generic-gray:#999;
-$color-generic-light-gray:#eee;
+$color-generic-yellow: #FFE600;
+$color-generic-white: #fff;
+$color-generic-gray: #999;
+$color-generic-light-gray: #eee;
 
+// Mixin
+@mixin respond($breakpoint) {
+    @if($breakpoint ==medium) {
+        @media (max-width: 900px) {
+            @content
+        }
+    }
 
+    @if($breakpoint ==small) {
+        @media (max-width: 600px) {
+            @content
+        }
+    }
+}

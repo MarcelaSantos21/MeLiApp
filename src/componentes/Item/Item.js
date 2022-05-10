@@ -1,10 +1,9 @@
 import './Item.scss'
 import { Link } from 'react-router-dom'
 import icShipping from '../../assets/ic_shipping.png'
+import NumberFormat from 'react-number-format'
 
 function Item (props) {
-  console.log(props.data)
-
   return (
         <div className='Item'>
             {props.data.map((item) => (
@@ -13,7 +12,8 @@ function Item (props) {
                         <div className='Item-container'>
                         <span className='Item-picture'><img src={item.picture} alt="logo" /></span>
                         <div className='Item-details'>
-                            <span className='Item-details-price'>{item.price.amount}
+                            <span className='Item-details-price'>
+                                <NumberFormat value={item.price.amount} displayType={'text'} thousandSeparator={true} prefix={'$'} />
                                 <img src={icShipping} alt="icon-shipping" />
                             </span>
                             <p className='Item-details-description'>{item.title}</p>

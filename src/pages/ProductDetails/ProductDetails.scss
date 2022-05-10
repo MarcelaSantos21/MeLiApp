@@ -1,51 +1,9 @@
+@import '../../styles/utils/settings';
+
 .Details {
-    background: #fff;
+    // background: #fff;
     border-radius: 4px;
-    .Details-sup {
-        display: flex;
-        justify-content: space-between;
-        margin-right: 32px;
-        margin-bottom: 100px;
-        img.Product-img {
-            /* display: inline-block; */
-            width: 680px;
-        }
-        .Product-condition {
-            margin-top: 32px;
-            font-size: 14px;
-            white-space: nowrap;
-        }
-        .Product-name {
-            /* font-size: 24px; */
-            margin-bottom: 32px;
-            margin-top: 16px;
-        }
-        .Product-price {
-            display: block;
-            font-size: 46px;
-            margin: 32px 0;
-        }
-        .btn-buy {
-            /* display: block; */
-            /* margin-right: 32px; */
-            width: 260px;
-            height: 42px;
-            border: none;
-            border-radius: 4px;
-            background: #348efa;
-            color: #fff;
-            font-size: 16px;
-        }
-    }
-    .title-description {
-        font-size: 28px;
-        margin-left: 32px;
-        margin-bottom: 32px;
-        /* margin-top: 100px; */
-    }
-    .Product-description {
-        margin-left: 32px;
-        padding-bottom: 30px;
-        color: #999;
-    }
+    position: relative;
+    width: 80%;
+    margin: auto;
 }

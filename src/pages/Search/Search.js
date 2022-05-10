@@ -27,9 +27,9 @@ function Search (props) {
                 <input className='Search-input' type="text" placeholder='Nunca dejes de buscar'
                     value={input} onInput={e => setInput(e.target.value)}
                 />
-                <span className='Search-icon' onClick={searchItem}>
+                <button type='submit' className='Search-icon' onClick={searchItem}>
                     <img src={icsearch} alt="icon-search" />
-                </span>
+                </button>
             </div>
         </div>
   )

@@ -1,20 +1,17 @@
-import { useState, useEffect } from 'react'
+import { useState, useCallback } from 'react'
 import searchItems from './../services/searchItemService'
 
-export const useItems = (query) => {
-  const [data, setData] = useState([])
+export const useItems = () => {
+  const [data, setData] = useState(null)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
-  useEffect(() => {
+  const getData = useCallback((query) => {
     setLoading(true)
     searchItems(query)
-      .then(data => {
-        setData(data)
-        setLoading(false)
-      }).catch(e => setError('Ocurrió un error'))
+      .then(setData)
+      .catch(() => setError('Ocurrió un error'))
       .finally(() => setLoading(false))
-  }, [query])
-
-  return { data, error, loading }
+  }, [])
+  return { data, error, loading, getData }
 }

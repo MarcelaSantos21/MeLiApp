@@ -1,17 +1,23 @@
 import { useParams } from 'react-router-dom'
 import './ProductDetails.scss'
 // import { useFetch } from './../../hooks/useFetch'
-import { useFetch } from '../../hooks/useItem'
+import { useItem } from '../../hooks/useItem'
+import { useEffect } from 'react'
+import ItemNotFound from './../../componentes/ItemNotFound/ItemNotFound'
+import ItemDetail from '../../componentes/ItemDetail/ItemDetail'
+import Categories from '../../componentes/Categories/Categories'
+import Spinner from '../../componentes/Spinner/Spinner'
 
 function ProductDetails () {
   const { id } = useParams()
+  const { data, error, loading, getData } = useItem()
 
-  const { item, error, loading } = useFetch(
-    `http://localhost:9010/api/items/${id}`
-  )
-  console.log(id, item)
+  useEffect(() => {
+    getData(id)
+  }, [id])
+
   if (loading) {
-    return <h1>Loading...</h1>
+    return <h1><Spinner/></h1>
   }
 
   if (error !== '') {
@@ -19,19 +25,13 @@ function ProductDetails () {
   }
   return (
     <div className='Details'>
-      <section className='Details-sup'>
-        <img className='Product-img' src={item.picture} alt="product-img" />
-        <div>
-          <p className='Product-condition'>{item.new} - {item.sold} vendidos</p>
-          <h1 className='Product-name'>{item.title}</h1>
-          <span className='Product-price'>${item.price.amount}</span>
-          <button className='btn-buy'>Comprar</button>
+     {data
+       ? <div>
+          <Categories categories = {data.categories}/>
+          <ItemDetail data = {data}/>
         </div>
-      </section>
-      <section>
-        <h2 className='title-description'>Descripcion</h2>
-        <p className='Product-description'>{item.description}</p>
-      </section>
+       : <ItemNotFound/>
+     }
     </div>
   )
 }
