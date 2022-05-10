@@ -8,7 +8,6 @@ export const useItems = (query) => {
 
   useEffect(() => {
     setLoading(true)
-    console.log('res', query)
     searchItems(query)
       .then(data => {
         setData(data)
