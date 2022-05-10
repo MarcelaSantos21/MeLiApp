@@ -9,7 +9,6 @@ function ItemNotFound () {
         </h1>
         <div className="App-wrapper">
               <img className='gifError'src={lupa} alt="alt-page-not-found"/>
-              {/* <span className='msgError'>Pagina no encontrada</span> */}
         </div>
       </div>
   )
