@@ -1,0 +1,14 @@
+@import '../../styles/utils/settings';
+
+.ProductList {
+    position: relative;
+    padding: 0 10% 5rem 15%;
+
+    &-categories {
+        padding: 16px 0;
+        font-size: 14px;
+        color: $color-generic-gray;
+        font-weight: bold;
+        text-transform: capitalize;
+    }
+}

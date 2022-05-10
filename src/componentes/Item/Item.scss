@@ -1,0 +1,51 @@
+@import '../../styles/utils/settings';
+
+.Item {
+    background: $color-generic-white;
+    border-radius: 4px;
+    padding: 0 16px;
+
+    &-container {
+        display: flex;
+        border-bottom: 1px solid $color-generic-light-gray;
+        padding: 16px 0;
+
+        .Item-picture {
+            position: relative;
+            margin-right: 16px;
+
+            img {
+                width: 180px;
+                height: 180px;
+                border-radius: 4px;
+                object-fit: contain;
+            }
+        }
+
+        .Item-details {
+            margin-top: 16px;
+            width: 65%;
+            color: $color-text-primary;
+
+            &-price {
+                display: block;
+                font-size: 24px;
+                margin-bottom: 32px;
+
+                img {
+                    margin-left: 5px;
+                }
+            }
+
+            &-description {
+                font-size: 18px;
+            }
+        }
+
+        .Item-seller {
+            font-size: 12px;
+            color: $color-generic-gray;
+            white-space: nowrap;
+        }
+    }
+}
